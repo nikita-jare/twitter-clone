@@ -9,6 +9,7 @@ import {TbNotes} from 'react-icons/tb'
 import {PiBookmarkSimpleBold, PiDotsThreeCircle} from 'react-icons/pi'
 import {IoPeopleOutline, IoPersonOutline} from 'react-icons/io5'
 import FeedCard from '@/components/FeedCard'
+import {GoogleLogin} from '@react-oauth/google'
 
 interface TwitterSidebarButton{
   title: String;
@@ -98,7 +99,12 @@ export default function Home() {
           <FeedCard/>
           <FeedCard/>
         </div>
-        <div className='col-span-3'></div>
+        <div className='col-span-3 p-5'>
+          <div className='rounded-lg p-5 bg-slate-800'>
+            <h1 className='text-l my-1'>New to Twitter?</h1>
+          <GoogleLogin onSuccess={cred => console.log(cred)}/>
+          </div>
+        </div>
       </div>
     </div>
   )
